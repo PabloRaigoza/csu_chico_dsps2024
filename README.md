@@ -11,6 +11,14 @@ This folder contains all the models we used
 - seg_model.keras (Keras model. Expects two images 1) Original image passed through VGG16 2) Segmentation mask made by seg_model.pt passed through VGG16)
 - obb_model.keras (Keras model. Expects two images 1) Original image passed through VGG16 2) Segmentation mask made by obb_model.pt on original image passed through VGG16)
 
+For segmentation training we used the roboflow data set found in the makefile:
+For obb training, we used the same roboflow data (but converted to obb by roboflow) found in the makefile:
+For classification we the dataset provided by the contest.
+
+For keras model training we used the dataset from the contest.
+
+**Note:** not all function in the notebook will run as they have precondition that train_v2 has two train directories (one with _train_ containing original images), and one with yolov8 containing the dataset tranformed in associated PCIs. We also assume you have the testing files in test_v2/test, as well as the roboflow datasets as installed by the makefile.
+
 In order to run our predictions define the functions in the notebook (not the ones for training) then you can use these functions:
 
 ```
