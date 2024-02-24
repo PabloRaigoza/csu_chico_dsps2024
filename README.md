@@ -13,7 +13,8 @@ This folder contains all the models we used
 
 In order to run our predictions
 
-```def seg_pred(dir='', name=''):
+```
+def seg_pred(dir='', name=''):
     path = os.path.join(dir, name)
 
     features = extract_seg_features(path)
@@ -57,4 +58,5 @@ def predict_obb_submission(test_dir):
     gen_submit(df, 'obb.json')
 
 predict_seg_submission('test_v2/test')
-predict_obb_submission('test_v2/test')```
+predict_obb_submission('test_v2/test')
+```
