@@ -1,0 +1,9 @@
+opencv-python
+ultralytics
+hub_sdk
+tensorflow
+pillow
+tensorrt
+scikit-image
+tensorflow_datasets
+tqdm
