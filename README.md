@@ -1,8 +1,19 @@
 # dsps2024
 
-# https://drive.google.com/drive/folders/1vXhBhl_S94igOTjWkfMkQQXJC9VZ4JIG?usp=sharing
+Our approach consisted of performing three tasks on the dataset:
+1. Instance segmentation
+2. Oriented object detection
+3. Standard classification
+
+Once, we have built good models for instance segmentation, we combined all the instance masks into one image (with background being black). We passes this through VGG16 convolutional base (along with original image). We then used this as an input into a stanard neural network to predict PCI.
+
+We did this process for oriented object detection as well.
+
+Once we finished creating all these models, we have found three ways to predict PCIs. Our methodology is that each model says something new about the images. For example, if both the classification and the segmentation model predicted high PCIs, then maybe the oriented object detection found some new distress. This is why when we combine the PCI predictions, we mostly go with the general rule of taking the minimum of these three predictions. In general YOLOv8-cls does best, which is why we give it a higher weight in the final prediction.
 
 This folder contains all the models we used
+# https://drive.google.com/drive/folders/1vXhBhl_S94igOTjWkfMkQQXJC9VZ4JIG?usp=sharing
+
 
 - class.pt (YOLOv8s-cls.pt classification model. Take argmax of probabilities to find prediction)
 - seg_model.pt (YOLOv8s-seg.pt segmentation model)
